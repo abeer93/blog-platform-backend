@@ -28,21 +28,15 @@ This backend application serves as a blogging platform with authentication featu
   ```
     npm install
   ```
-  ```
 6. Run seeds to generate admin user
   ```
     npm run seed
   ```
-7. Run test cases/
-    before running next commands please make sure fill all database test variables which begin with DB_TEST_ in .env file.
-  ```
-    npm test
-  ```
-8. Run Servers
+7. Run Servers
   ```
     npm start
   ```
-9. to display the system UI please head to this front-end project 
+8. to display the system UI please head to this front-end project 
   ```
     https://github.com/abeer93/blog-platform-frontend.git
   ```
