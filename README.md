@@ -28,7 +28,7 @@ This backend application serves as a blogging platform with authentication featu
   ```
     npm install
   ```
-6. Run seeds to generate admin user
+6. Run seeds to generate admin user (make sure you filled DB variables in .env before doing this step)
   ```
     npm run seed
   ```
