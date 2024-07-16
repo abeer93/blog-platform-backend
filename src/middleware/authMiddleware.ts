@@ -6,9 +6,6 @@ import * as response from '../utils/response';
 
 export const authMiddleware = async (ctx: Context, next: Next) => {
   const token = ctx.headers.authorization?.split(' ')[1];
-  console.log("test is here", token);
-  
-
   if (!token) {
     return response.unAuthorized(ctx, 'Access denied');
   }
@@ -24,7 +21,6 @@ export const authMiddleware = async (ctx: Context, next: Next) => {
 
     ctx.state.user = user;
 
-    console.log("going to next");
     await next();
   } catch (err) {
     return response.unAuthorized(ctx, 'Access denied');

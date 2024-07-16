@@ -9,7 +9,6 @@ import { ObjectId } from 'mongodb';
 export const createPost = async (ctx: Context) => {
   const { title, content, tags } = ctx.request.body as PostRequestBody;
   const author = ctx.state.user;
-  console.log("here we go",  title, content, tags, author);
 
   try {
     const newPost = new Post({ title, content, author: author._id, tags });
@@ -19,11 +18,8 @@ export const createPost = async (ctx: Context) => {
     newPost.author = author;
     const responseObject: PostDTO = toPostDTO(newPost);
 
-    console.log("creation done", responseObject);
     return response.createdSuccessfully(ctx, responseObject);
   } catch (err) {
-    console.log("error creation", err);
-    
     response.validationError(ctx, { message: 'Error creating post' });
   }
 };

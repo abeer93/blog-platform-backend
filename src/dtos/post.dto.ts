@@ -17,14 +17,11 @@ export interface PostDTO {
 
 export const toPostDTO = (post: PostDocument, appendComments: boolean = false): PostDTO => {  
     const author = post.author as UserDocument;
-  console.log(" create dto", post);
 
     const comments: CommentDTO[] = appendComments ? (post.comments as unknown as CommentDocument[]).map((comment: CommentDocument) => toCommentDTO(comment)) : [];
-    console.log(" we are dto");
-    console.log("author name:", author ? author.name : "");
+
     return {
-      // id: (post._id as unknown as string).toString(),
-      id: (post._id?.toString()) ?? '',
+      id: (post._id as unknown as string).toString(),
       title: post.title,
       content: post.content,
       author: {

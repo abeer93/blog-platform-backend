@@ -6,8 +6,6 @@ export const validatePostBody = async (ctx: Context, next: Next) => {
   const { title, content, tags } = ctx.request.body as PostRequestBody;
 
   const errors: { [key: string]: string } = {};
-  console.log("inside validation",  title, content, tags);
-  
 
   if (!title) {
     errors.title = 'Title is required';
@@ -28,9 +26,6 @@ export const validatePostBody = async (ctx: Context, next: Next) => {
   if (Object.keys(errors).length > 0) {
     return response.validationError(ctx, errors);
   }
-
-  console.log("going to next");
-  
 
   await next();
 };
